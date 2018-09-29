@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :conversations
   resources :chapters
+  resources :messages
   resources :registrations
   resources :groups
   devise_for :users
