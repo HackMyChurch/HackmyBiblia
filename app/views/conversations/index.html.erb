@@ -16,9 +16,6 @@
       <tr>
         <td><%= conversation.name %></td>
         <td><%= conversation.likes %></td>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
-        <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +23,3 @@
 
 <br>
 
-<%= link_to 'New Conversation', new_conversation_path %>
