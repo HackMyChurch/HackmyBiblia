@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_154135) do
+ActiveRecord::Schema.define(version: 2018_09_29_161717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 2018_09_29_154135) do
     t.integer "likes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.bigint "chapter_id"
+    t.index ["chapter_id"], name: "index_conversations_on_chapter_id"
+    t.index ["group_id"], name: "index_conversations_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -43,12 +47,20 @@ ActiveRecord::Schema.define(version: 2018_09_29_154135) do
     t.integer "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "registrations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.bigint "user_id"
+    t.index ["group_id"], name: "index_registrations_on_group_id"
+    t.index ["user_id"], name: "index_registrations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +76,10 @@ ActiveRecord::Schema.define(version: 2018_09_29_154135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversations", "chapters"
+  add_foreign_key "conversations", "groups"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "registrations", "groups"
+  add_foreign_key "registrations", "users"
 end
