@@ -53,13 +53,13 @@ class ChaptersController < ApplicationController
 
   # DELETE /chapters/1
   # DELETE /chapters/1.json
-  def destroy
-    @chapter.destroy
-    respond_to do |format|
-      format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @chapter.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to chapters_url, notice: 'Chapter was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
