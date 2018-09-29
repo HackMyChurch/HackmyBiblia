@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  resources :conversations
   resources :registrations
   resources :groups
   devise_for :users
