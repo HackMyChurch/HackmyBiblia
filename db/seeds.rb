@@ -73,3 +73,6 @@ puts "#{Group.count} groupe créé"
 puts "#{Chapter.count} versets créé"
 puts "#{Conversation.count} conversation créée"
 puts "#{Message.count} messages créés"
+
+
+puts "hackmybiblia.herokuapp.com/groups/#{Group.last.id}/conversations/#{Conversation.last.id}"
