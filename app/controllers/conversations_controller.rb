@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation_and_chapter, only: [:show, :edit, :update, :destroy]
-  before_action :set_group, only: [:show, :index]
+  before_action :set_group
   # GET /conversations
   # GET /conversations.json
   def index
@@ -10,6 +10,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
+    @messages = @conversation.messages
   end
 
   # GET /conversations/new
@@ -49,6 +50,16 @@ class ConversationsController < ApplicationController
         format.json { render json: @conversation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def add_like
+    @conversation = Conversation.find(params[:conversation_id])
+
+    puts ";"*99
+    likes = @conversation.likes
+    @conversation.update!(
+      likes: likes + 1)
+    redirect_to group_conversation_path(@group, @conversation)
   end
 
   # DELETE /conversations/1

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :registrations
     resources :conversations do
       resources :messages
+      get "addlike", to: "conversations#add_like"
     end
   end
   resources :chapters

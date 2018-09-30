@@ -7,28 +7,27 @@
 
 <div class="container">
   <div row="row">
-    <div class="col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4 col-lg-4 col-lg-offset-4 col-lg-4 col-lg-offset-4">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="panel panel-white post panel-shadow">
         <div class="post-heading">
-          <div class="pull-left image">
-              <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-          </div>
           <div class="pull-left meta">
               <div class="title h5">
-                  <a href="#"><b>Ryan Haywood</b></a>
-                  made a post.
+                <%= @conversation.name %>
+              </div>
+              <div class="title h3">
+                <b><%= @chapter.title %></b>
               </div>
           </div>
         </div>
         <div class="post-description">
-          <p> Jésus dit : « Je suis la Résurrection et la Vie. Celui qui croit en moi, même s’il meurt, vivra » (Jean 11, 25). Il enseigne que le recevoir, c’est recevoir Dieu, l’accueillir, c’est accueillir Dieu, que ceux qui l’ont vu, ont vu Dieu. </p>
+          <p> <%= @chapter.description %> </p>
+          <p><em><%= @chapter.bible_ref %> </em></p>
           <div class="stats">
-              <a href="#" class="btn btn-default stat-item">
-                  <i class="glyphicon glyphicon-coeur"></i>2
-              </a>
-              <a href="#" class="btn btn-default stat-item">
-                  <i class="fa fa-share icon"></i>12
-              </a>
+              <%= link_to group_conversation_addlike_path(@group, @conversation) do %>
+                <span class="btn btn-default stat-item red-heart">
+                  <i class="fa fa-heart icon"></i> <%= @conversation.likes %>
+                </span>
+              <% end %>
           </div>
         </div>
         <div class="post-footer">
@@ -39,44 +38,19 @@
             </span>
           </div>
           <ul class="comments-list">
-            <li class="comment">
-              <a class="pull-left" href="#">
-                <img class="avatar" src="http://bootdey.com/img/Content/user_3.jpg" alt="avatar">
-              </a>
-              <div class="comment-body">
-                <div class="comment-heading">
-                    <h4 class="user">Paul</h4>
-                    <h5 class="time">3 minutes ago</h5>
-                </div>
-                <p>si cela n’était pas vrai, notre prédication serait inutile. Si ce qui est écrit est vrai alors ce que Jésus a dit nous est promis vraiment!</p>
-              </div>
-            </li>
-            <li class="comment">
-              <a class="pull-left" href="#">
-                  <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
-              </a>
-              <div class="comment-body">
-                <div class="comment-heading">
-                  <h4 class="user">Thomas</h4>
-                  <h5 class="time">5 minutes ago</h5>
-                </div>
-                <p>est-ce qu’il vraiment possible qu’il ait ressuscité? Certains disent que ce ne serait pas lui qui a été crucifié.</p>
-              </div>
-              <ul class="comments-list">
-                <li class="comment">
-                  <a class="pull-left" href="#">
-                      <img class="avatar" src="http://bootdey.com/img/Content/user_2.jpg" alt="avatar">
-                  </a>
-                  <div class="comment-body">
-                    <div class="comment-heading">
-                      <h4 class="user">Isabelle</h4>
-                      <h5 class="time">3 minutes ago</h5>
-                    </div>
-                    <p>En fait Thomas, face à Jésus, n’a pas osé mettre les mains dans la plaie, il a reconnu Jésus comme son Seigneur, son Dieu.</p>
+            <% @messages.each do |message| %>
+              <li class="comment">
+                <a class="pull-left avatar" href="#">
+                  <%= image_tag message.author_img, height: 40 %>
+                </a>
+                <div class="comment-body">
+                  <div class="comment-heading">
+                      <h4 class="user"><%= message.author_name %></h4>
                   </div>
-                </li>
-              </ul>
-            </li>
+                  <p><%= message.name %></p>
+                </div>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
