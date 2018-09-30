@@ -10,7 +10,10 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
-    @messages = @conversation.messages
+    @messages = @conversation.messages.reverse
+    @new_message = Message.new(
+      author_name: "Jacques",
+      author_img: "jacques.png")
   end
 
   # GET /conversations/new
@@ -54,12 +57,23 @@ class ConversationsController < ApplicationController
 
   def add_like
     @conversation = Conversation.find(params[:conversation_id])
-
-    puts ";"*99
     likes = @conversation.likes
     @conversation.update!(
       likes: likes + 1)
     redirect_to group_conversation_path(@group, @conversation)
+  end
+
+  def add_message
+    @conversation = Conversation.find(params[:conversation_id])
+    @message = Message.create!(
+      name: params["message"]["name"],
+      likes: 0,
+      conversation_id: @conversation.id,
+      author_name: current_user.nickname,
+      author_img: "jacques.png",
+    )
+
+    redirect_to group_conversation_path(@group, @conversation), notice: "Commentaire ajouté!"
   end
 
   # DELETE /conversations/1

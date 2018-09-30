@@ -24,17 +24,15 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = Message.create!(
+      name: params["message"]["name"],
+      likes: 0,
+      conversation_id: params["conversation_id"].to_i,
+      author_name: current_user.nickname,
+      author_img: "jacques.png",
+    )
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to group_conversation_path(@message.conversation.group, @message.conversation), notice: "Commentaire ajouté!"
   end
 
   # PATCH/PUT /messages/1
