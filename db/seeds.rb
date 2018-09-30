@@ -15,7 +15,7 @@ Conversation.destroy_all
 Message.destroy_all
 
 
-User.create!(email: "jacques@abf.fr", password: "000000", nickname: "Jacques")
+User.create!(email: "paul@paul.fr", password: "000000", nickname: "Paul")
 
 
 group = Group.create!(name: "alpha Nantes", description: "Bienvenue chez les alpha")
