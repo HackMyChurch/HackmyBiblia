@@ -1,10 +1,10 @@
 class ConversationsController < ApplicationController
-  before_action :set_conversation, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_conversation_and_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :index]
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    @conversations = @group.conversations
   end
 
   # GET /conversations/1
@@ -63,8 +63,13 @@ class ConversationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_conversation
+    def set_conversation_and_chapter
       @conversation = Conversation.find(params[:id])
+      @chapter = @conversation.chapter
+    end
+
+    def set_group
+      @group = Group.find(params[:group_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
