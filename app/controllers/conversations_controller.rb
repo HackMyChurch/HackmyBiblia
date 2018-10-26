@@ -12,8 +12,8 @@ class ConversationsController < ApplicationController
   def show
     @messages = @conversation.messages.reverse
     @new_message = Message.new(
-      author_name: "Jacques",
-      author_img: "jacques.png")
+      author_name: "Paul",
+      author_img: "paul.png")
   end
 
   # GET /conversations/new
@@ -70,7 +70,7 @@ class ConversationsController < ApplicationController
       likes: 0,
       conversation_id: @conversation.id,
       author_name: current_user.nickname,
-      author_img: "jacques.png",
+      author_img: "paul.png",
     )
 
     redirect_to group_conversation_path(@group, @conversation), notice: "Commentaire ajouté!"
