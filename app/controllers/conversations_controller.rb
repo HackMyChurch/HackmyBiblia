@@ -12,8 +12,8 @@ class ConversationsController < ApplicationController
   def show
     @messages = @conversation.messages.reverse
     @new_message = Message.new(
-      author_name: "Jacques",
-      author_img: "jacques.png")
+      author_name: "Paul",
+      author_img: "paul.png")
   end
 
   # GET /conversations/new
@@ -62,7 +62,6 @@ class ConversationsController < ApplicationController
       likes: likes + 1)
     redirect_to group_conversation_path(@group, @conversation)
   end
-
 
   # DELETE /conversations/1
   # DELETE /conversations/1.json
