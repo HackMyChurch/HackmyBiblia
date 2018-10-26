@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_group, only: %i(message_perso message_groupe membre_groupe)
-  before_action :set_conversation, only: %i(message_perso message_groupe membre_groupe)
+  before_action :set_group
+  before_action :set_conversation
 
   def home
   end
