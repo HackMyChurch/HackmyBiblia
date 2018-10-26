@@ -1,1 +1,36 @@
 <p>Les conversations de ce groupe</p>
+
+
+<div class="container">
+  <div row="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <% @conversations.each do |conversation| %>
+        <% chapter = conversation.chapter %>
+        <div class="panel panel-white post panel-shadow">
+          <div class="post-heading">
+            <div class="title pull-left meta">
+                <%= link_to conversation.name, group_conversation_path(@group, conversation), class: "btn btn-primary btn-lg" %>
+                <div class="title h3">
+                  <b><%= chapter.title %></b>
+                </div>
+            </div>
+          </div>
+          <div class="post-description">
+            <p> <%= chapter.description %> </p>
+            <p><em><%= chapter.bible_ref %> </em></p>
+            <div class="stats">
+              <%= link_to group_conversation_addlike_path(@group, conversation) do %>
+                <span class="btn btn-default stat-item red-heart">
+                  <i class="fa fa-heart icon"></i> <%= conversation.likes %>
+                </span>
+              <% end %>
+              <span class="btn btn-default stat-item">
+                <i class="far fa-comments icon"></i> <%= conversation.messages.count %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
