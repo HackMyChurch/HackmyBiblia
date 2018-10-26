@@ -63,18 +63,6 @@ class ConversationsController < ApplicationController
     redirect_to group_conversation_path(@group, @conversation)
   end
 
-  def add_message
-    @conversation = Conversation.find(params[:conversation_id])
-    @message = Message.create!(
-      name: params["message"]["name"],
-      likes: 0,
-      conversation_id: @conversation.id,
-      author_name: current_user.nickname,
-      author_img: "jacques.png",
-    )
-
-    redirect_to group_conversation_path(@group, @conversation), notice: "Commentaire ajouté!"
-  end
 
   # DELETE /conversations/1
   # DELETE /conversations/1.json
