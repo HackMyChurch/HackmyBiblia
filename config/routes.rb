@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get 'pages/message_perso', to: "pages#message_perso"
+  get 'pages/message_groupe', to: "pages#message_groupe"
+  get 'pages/membre_groupe', to: "pages#membre_groupe"
 
   resources :groups do
     resources :registrations
