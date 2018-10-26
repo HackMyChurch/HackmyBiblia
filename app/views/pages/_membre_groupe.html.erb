@@ -1,55 +1,40 @@
-<div class="post-heading">
-  <div class="mid">
-    <h1 style="text-align:center;"> Membres du groupe</h1>
+<div class="banner">
+  <div class="banner-content">
+    <h1>Membres du groupes</h1>
+    <div class="members">
+      <div class="member">
+        <a class="avatar-large" href="#">
+          <%= image_tag "alice.png", height: 90 %>
+        </a>
+        <div class="members-body">
+          <p><strong>Alice</strong></p>
+        </div>
+      </div>
+      <div class="member">
+        <a class="avatar-large" href="#">
+          <%= image_tag "isabelle.png", height: 90 %>
+        </a>
+        <div class="members-body">
+          <p><strong>Isabelle</strong></p>
+        </div>
+      </div>
+      <div class="member">
+        <a class="avatar-large" href="#">
+          <%= image_tag "michel.png", height: 90 %>
+        </a>
+        <div class="members-body">
+          <p><strong>Michel</strong></p>
+        </div>
+      </div>
+      <div class="member">
+        <a class="avatar-large" href="#">
+          <%= image_tag "sandra.png", height: 90 %>
+        </a>
+        <div class="members-body">
+          <p><strong>Sandra</strong></p>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Rejoindre notre groupe", group_conversation_path(@group, @conversation), class: "btn btn-primary btn-lg" %>
   </div>
-</div>
-<div class="post-description">
-  <div class="panel panel-default">
-    <ul class="list-group" id="contact-list">
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-xs-4 col-sm-2">
-            <img src="dist/avatar/isabelle.png" alt="Scott Stevens" class="img-responsive img-circle" />
-          </div>
-          <div class="col-xs-8 col-sm-9">
-            <h2>Isabelle</h2>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-xs-4 col-sm-2">
-            <img src="dist/avatar/sandra.png" alt="Rosemary Porter" class="img-responsive img-circle" />
-          </div>
-          <div class="col-xs-8 col-sm-10">
-            <h2>Sandra</h2>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-xs-4 col-sm-2">
-            <img src="dist/avatar/michel.png" alt="Glenda Patterson" class="img-responsive img-circle" />
-          </div>
-          <div class="col-xs-8 col-sm-10">
-            <h2>Michel</h2>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-xs-4 col-sm-2">
-            <img src="dist/avatar/alice.png" alt="Glenda Patterson" class="img-responsive img-circle" />
-          </div>
-          <div class="col-xs-8 col-sm-10">
-            <h2>Alice</h2>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-<div class="post-footer">
-  <p>Ici le bouton vers accès au groupe</p>
-  <button name="button" type="button"><a class="btn next">Rejoindre</a></button>
 </div>
