@@ -2,7 +2,46 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="panel panel-white post panel-shadow">
-        <%= render "membre_groupe" %>
+        <div class="banner">
+          <div class="banner-content">
+            <h1>Membres du groupes</h1>
+            <div class="members">
+              <div class="member">
+                <a class="avatar-large" href="#">
+                  <%= image_tag "alice.png", height: 90 %>
+                </a>
+                <div class="members-body">
+                  <p><strong>Alice</strong></p>
+                </div>
+              </div>
+              <div class="member">
+                <a class="avatar-large" href="#">
+                  <%= image_tag "isabelle.png", height: 90 %>
+                </a>
+                <div class="members-body">
+                  <p><strong>Isabelle</strong></p>
+                </div>
+              </div>
+              <div class="member">
+                <a class="avatar-large" href="#">
+                  <%= image_tag "michel.png", height: 90 %>
+                </a>
+                <div class="members-body">
+                  <p><strong>Michel</strong></p>
+                </div>
+              </div>
+              <div class="member">
+                <a class="avatar-large" href="#">
+                  <%= image_tag "sandra.png", height: 90 %>
+                </a>
+                <div class="members-body">
+                  <p><strong>Sandra</strong></p>
+                </div>
+              </div>
+            </div>
+            <%= link_to "Rejoindre notre groupe", group_conversation_path(@group, @conversation), class: "btn btn-primary btn-lg" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
