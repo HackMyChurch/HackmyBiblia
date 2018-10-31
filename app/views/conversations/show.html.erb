@@ -31,15 +31,16 @@
           </div>
         </div>
         <div class="post-footer">
-          <%= simple_form_for([@group, @conversation, @new_message]) do |f| %>
+          <%= simple_form_for([@group, @conversation, @new_message], defaults: { input_html: { class: 'form-inline' } }) do |f| %>
             <%= f.error_notification %>
+            <div class="same-line">
+              <div class="form-inputs">
+                <%= f.text_field :name, placeholder: "Ajouter un commentaire" %>
+              </div>
 
-            <div class="form-inputs">
-              <%= f.text_field :name, placeholder: "Ajouter un commentaire" %>
-            </div>
-
-            <div class="form-actions">
-              <%= f.button :submit %>
+              <div class="form-actions big-item">
+                <%= f.button :submit, "Publier", class: "btn btn-success" %>
+              </div>
             </div>
           <% end %>
 

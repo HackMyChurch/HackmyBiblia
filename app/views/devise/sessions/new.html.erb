@@ -15,7 +15,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
-        <div class="form-actions full-line">
+        <div class="form-actions same-line">
           <%= f.button :submit, "Se connecter", class: "btn btn-secondary btn-lg" %>
           <%= link_to "Créer son compte", new_user_registration_path, class: "btn btn-primary btn-lg" %>
         </div>

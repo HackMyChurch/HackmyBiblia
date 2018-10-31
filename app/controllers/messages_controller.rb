@@ -28,8 +28,8 @@ class MessagesController < ApplicationController
       name: params["message"]["name"],
       likes: 0,
       conversation_id: params["conversation_id"].to_i,
-      author_name: current_user.nickname,
-      author_img: "paul.png",
+      author_name: "Utilisateur alpha",
+      author_img: "user.png",
     )
 
     redirect_to group_conversation_path(@message.conversation.group, @message.conversation), notice: "Commentaire ajouté!"
