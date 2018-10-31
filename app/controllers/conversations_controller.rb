@@ -12,8 +12,8 @@ class ConversationsController < ApplicationController
   def show
     @messages = @conversation.messages.reverse
     @new_message = Message.new(
-      author_name: "Paul",
-      author_img: "paul.png")
+      author_name: "Utilisateur alpha",
+      author_img: "user.png")
   end
 
   # GET /conversations/new
