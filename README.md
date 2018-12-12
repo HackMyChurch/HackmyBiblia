@@ -4,3 +4,4 @@ Project initialized during hackathon HackmyBible (28 - 30th of september), only 
 
 As I promised, I've kept developing this project to deliver a functional prototype, as it should have been for pitch... Feel free to make it continue !!
 
+Yes bravo !
